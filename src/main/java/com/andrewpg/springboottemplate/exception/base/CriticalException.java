@@ -3,8 +3,8 @@ package com.andrewpg.springboottemplate.exception.base;
 import lombok.Getter;
 
 /**
- * Excepción crítica que SIEMPRE se audita. Úsala para errores graves del sistema (fallos de BD,
- * servicios externos caídos, problemas de seguridad, etc.)
+ * Critical exception that is ALWAYS audited. Use it for system errors (database failures, external
+ * services down, security issues, etc.)
  */
 @Getter
 public class CriticalException extends RuntimeException implements AuditableException {
@@ -32,6 +32,6 @@ public class CriticalException extends RuntimeException implements AuditableExce
 
   @Override
   public boolean shouldAudit() {
-    return true; // SIEMPRE se audita
+    return true; // Always audited
   }
 }

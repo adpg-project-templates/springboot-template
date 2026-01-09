@@ -3,6 +3,7 @@ package com.andrewpg.springboottemplate.config.dev;
 import com.andrewpg.springboottemplate.entity.Role;
 import com.andrewpg.springboottemplate.repository.RoleRepository;
 import java.util.List;
+import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
@@ -31,7 +32,7 @@ public class DataInitializer implements CommandLineRunner {
               Role.builder().name(Role.RoleName.ROLE_ADMIN).build(),
               Role.builder().name(Role.RoleName.ROLE_MODERATOR).build());
 
-      roleRepository.saveAll(roles);
+      roleRepository.saveAll(Objects.requireNonNull(roles));
       log.info("Roles initialized successfully");
     }
   }

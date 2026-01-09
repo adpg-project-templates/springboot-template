@@ -5,8 +5,8 @@ import com.andrewpg.springboottemplate.exception.base.ErrorSeverity;
 import lombok.Getter;
 
 /**
- * Excepción para recursos no encontrados (404). Por defecto NO se audita porque es común y no es
- * crítico.
+ * Exception for resources not found (404). By default, it is not audited because it is common and
+ * not critical.
  */
 @Getter
 public class ResourceNotFoundException extends RuntimeException implements AuditableException {
@@ -28,12 +28,12 @@ public class ResourceNotFoundException extends RuntimeException implements Audit
 
   @Override
   public ErrorSeverity getSeverity() {
-    return ErrorSeverity.INFO; // No es crítico
+    return ErrorSeverity.INFO; // Not critical
   }
 
   @Override
   public boolean shouldAudit() {
-    return false; // NO se audita por defecto
+    return false; // Not audited by default
   }
 
   @Override

@@ -12,6 +12,7 @@ import java.io.StringWriter;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -106,7 +107,7 @@ public class AuditService {
               .requestHeaders(requestHeaders)
               .build();
 
-      errorLogRepository.saveAndFlush(errorLog);
+      errorLogRepository.saveAndFlush(Objects.requireNonNull(errorLog));
       log.debug(
           "Error logged to database: {} (severity: {}, code: {})",
           errorLog.getId(),
@@ -147,7 +148,7 @@ public class AuditService {
               .ipAddress(ipAddress)
               .build();
 
-      auditLogRepository.saveAndFlush(auditLog);
+      auditLogRepository.saveAndFlush(Objects.requireNonNull(auditLog));
       log.debug("Audit action logged: {} - {}", action, description);
     } catch (Exception e) {
       log.error("Failed to save audit log to database", e);

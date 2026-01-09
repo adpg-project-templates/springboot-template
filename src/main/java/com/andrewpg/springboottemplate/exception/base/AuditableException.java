@@ -1,32 +1,32 @@
 package com.andrewpg.springboottemplate.exception.base;
 
 /**
- * Interfaz para excepciones que deben ser auditadas. Las excepciones que implementen esta interfaz
- * serán registradas en la base de datos según su nivel de severidad.
+ * Interface for exceptions that must be audited. Exceptions that implement this interface will be
+ * registered in the database according to their severity level.
  */
 public interface AuditableException {
 
   /**
-   * Obtiene el nivel de severidad de la excepción
+   * Gets the severity level of the exception
    *
-   * @return El nivel de severidad
+   * @return The severity level
    */
   ErrorSeverity getSeverity();
 
   /**
-   * Indica si esta excepción debe ser auditada en la base de datos
+   * Indicates if this exception must be audited in the database
    *
-   * @return true si debe auditarse, false en caso contrario
+   * @return true if it must be audited, false otherwise
    */
   default boolean shouldAudit() {
-    // Por defecto, solo auditamos ERROR y FATAL
+    // By default, we only audit ERROR and FATAL
     return getSeverity() == ErrorSeverity.ERROR || getSeverity() == ErrorSeverity.FATAL;
   }
 
   /**
-   * Obtiene el código de error personalizado
+   * Gets the custom error code
    *
-   * @return Código de error (opcional)
+   * @return Error code (optional)
    */
   default String getErrorCode() {
     return null;

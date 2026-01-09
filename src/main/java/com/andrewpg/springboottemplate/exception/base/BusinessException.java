@@ -3,8 +3,8 @@ package com.andrewpg.springboottemplate.exception.base;
 import lombok.Getter;
 
 /**
- * Excepción de negocio base. Úsala para errores de lógica de negocio que NO necesitan auditarse
- * (validaciones, reglas de negocio simples, etc.)
+ * Business exception base. Use it for business logic errors that do not need to be audited
+ * (validation, simple business rules, etc.)
  */
 @Getter
 public class BusinessException extends RuntimeException implements AuditableException {
@@ -28,7 +28,7 @@ public class BusinessException extends RuntimeException implements AuditableExce
 
   @Override
   public boolean shouldAudit() {
-    // Las excepciones de negocio solo se auditan si son ERROR o FATAL
+    // Business exceptions are only audited if they are ERROR or FATAL
     return severity == ErrorSeverity.ERROR || severity == ErrorSeverity.FATAL;
   }
 }

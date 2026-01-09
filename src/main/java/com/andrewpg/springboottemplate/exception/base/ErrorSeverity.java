@@ -1,8 +1,8 @@
 package com.andrewpg.springboottemplate.exception.base;
 
 public enum ErrorSeverity {
-  INFO, // Errores informativos, no críticos (ej: validación)
-  WARNING, // Advertencias, pueden necesitar atención
-  ERROR, // Errores que requieren atención
-  FATAL // Errores críticos que siempre se auditan
+  INFO, // Informative errors, not critical (e.g.: validation)
+  WARNING, // Warnings, may require attention
+  ERROR, // Errors that require attention
+  FATAL // Critical errors that are always audited
 }

@@ -197,7 +197,7 @@ docker compose down
 The Docker setup is optimized for development with hot-reload capabilities:
 
 1. **Base Image**: Uses `eclipse-temurin:17-jdk` as base image
-2. **Volume Mounting**: 
+2. **Volume Mounting**:
    - `./src:/app/src` - Source code for hot-reload
    - `./build:/app/build` - Build artifacts
 3. **Continuous Compilation**: `docker-entrypoint.sh` runs `gradlew compileJava --continuous` in the background
@@ -304,10 +304,10 @@ git commit --no-verify
   ```java
   // Services
   private final UserService userService;
-  
+
   // Repositories
   private final UserRepository userRepository;
-  
+
   // Mappers
   private final UserMapper userMapper;
   ```
@@ -336,16 +336,16 @@ Dependencies in classes should be organized with comments:
 @Service
 @RequiredArgsConstructor
 public class MyService {
-  
+
   // Services
   private final OtherService otherService;
-  
+
   // Repositories
   private final MyRepository repository;
-  
+
   // Mappers
   private final MyMapper mapper;
-  
+
   // Security
   private final PasswordEncoder passwordEncoder;
 }
