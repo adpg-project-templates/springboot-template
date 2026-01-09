@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+echo "Running Spotless on staged Java files..."
+
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.java$' || true)
+
+if [ -z "$FILES" ]; then
+  echo "No staged Java files. Skipping Spotless."
+  exit 0
+fi
+
+echo "Formatting:"
+echo "$FILES"
+
+./gradlew spotlessApply
+
+git add $FILES
+
+echo "Spotless completed successfully."
